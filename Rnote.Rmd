@@ -1,0 +1,86 @@
+---
+title: "R note"
+output: html_document
+date: "2023-05-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R note
+
+**\##Ch1**
+
+console視窗最左邊出現"+"而非"\>"表程式碼未完成
+
+安裝套件程式碼：install.packages("套件名稱")
+
+載入安裝好的套件：library(套件名稱)
+
+查詢函數內參數：?函數名稱
+
+變數命名規則：開頭只能是英文或.且大小寫不一樣
+
+str()：用於檢查各類variable型態
+
+View()：將資料轉成表格來閱讀
+
+table()：計算vector裡的element有幾個
+
+資料型態：數值(n),字串(c),布林變數(T,F),日期(d)
+
+作業環境簡介： sessionInfo()
+
+**\##Ch2**
+vector計算時，若其中一個vector長度不夠，後面計算會重複前面元素
+
+屬性資料查詢-
+
+名稱names()
+
+各維度(行、列)名稱dimnames()
+
+長度length()
+
+資料型態class()
+
+資料總攬str()
+
+**\##Ch3**
+迴圈：for,while,break,next
+
+for-根據判斷式"逐一跑迴圈"，for(單一變量 in 向量)，會停止
+
+while-根據判斷式，若為true，進入迴圈，若為false，結束迴圈，須設定判斷式的下一個值，否則淪為無限迴圈
+
+break-判斷式符合則停止迴圈
+
+next-判斷式符合則跳下一個迴圈
+
+**\##Ch4**
+資料分析步驟：資料匯入->資料清洗+處理->資料分析->資料視覺化
+
+載入XML資料時，要先library(http)，才能跑網址
+
+如何讀XML資料？1.下載XML檔
+               2.打開記事本看tagsname
+               3.複製下載網址到R處理(package用xml2)
+               4.function：read_xml(讀取hml檔網址)
+               ->xml_find_all(取出element，含tagsname)
+               ->xml_text(將tagsname移除)
+               
+如何讀json檔？1.jsonlite package
+              2.fromJSON()函數載入JSON資料
+              3.如果API網址為https，則需使用 httr package
+              4.使用GET()函數處理資料擷取網址
+
+
+
+## Git&GitHub 協作工具和版本控制
+
+GitHub- Fork：把別人的程式碼拷貝一份到自己的GitHub空間
+
+Clone：把GitHub上的程式碼拷貝到本機電腦
+
+Pull：上傳更新GitHub資料
