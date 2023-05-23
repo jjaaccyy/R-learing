@@ -75,6 +75,16 @@ next-判斷式符合則跳下一個迴圈
               3.如果API網址為https，則需使用 httr package
               4.使用GET()函數處理資料擷取網址
 
+如何網頁爬蟲？
+(不要用這個)1.當成XML檔，用xml package->htmlParse(存網址)->xpathSApply
+(用這個)rvest套件，經由以下步驟進行網站解析：
+
+使用read_html(“欲擷取的網站網址”)函數讀取網頁
+使用html_nodes()函數擷取所需內容 (條件為CSS或xpath標籤)
+使用html_text()函數處理/清洗擷取內容，留下需要的資料
+使用html_attr()函數擷取資料參數（如連結url）
+p.s.爬蟲code需常常更新，因網頁會改版所以城市要更新
+
 
 
 ## Git&GitHub 協作工具和版本控制
