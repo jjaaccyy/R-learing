@@ -29,3 +29,4 @@ html_nodes("a") %>%
 html_text()
 tech_jobtitle[3]
 
+
