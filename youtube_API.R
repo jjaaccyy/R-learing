@@ -8,9 +8,12 @@ detail<-get_video_details(video_id = "54PjzjQv1W0")
 str(detail)
 View(detail$items[[1]]$snippet)
 tagsName<-data.frame(tags=detail$items[[1]]$snippet$tags)
+View(tagsName)
 
 comment<-get_all_comments(video_id = "54PjzjQv1W0")
 View(data.frame(comment))
 as.numeric(comment$likeCount)->comment$likeCount
-write.table(comment,file="comment.txt",sep = ",",row.names = F,col.names = T)
-saveRDS(comment,"comment.rds")
+comment$textOriginal->commenttidy
+grep("滴妹",commenttidy)
+strsplit(commenttidy,"，|？|。")->comment_split
+comment_split[[156]]
