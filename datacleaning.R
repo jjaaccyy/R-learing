@@ -36,4 +36,24 @@ str_trim(" Hello World ")
 grepl("A",c("Apple","salad","pineApple","juice","JAcy"))
 grep("A|s",c("Apple","salad","pineApple","juice","JAcy"))
 
+letters[c(-1,-2,-3)]
+head(letters,4)
+tail(letters,6)
+iris[1,3]##第一列row，第三列column
+iris[1:3,]
+iris[1:10,c(T,T,F,F,T)]##第一至十列row，第一、二、五列column
+iris[,"Species"]##所有row，且行名稱為Species的data
+iris[1:10,"Species"]
 
+seq(1,150,by=2)->odds
+iris[odds,]
+seq(2,150,by=2)->even
+iris[even,c(F,F,F,T,T)]
+subset(iris,Species=="virginica")
+
+mtcars
+subset(mtcars,cyl<=6)
+View(mtcars)
+rownames(mtcars)->rowname_car
+grepl("Toyota",rowname_car)->toyota
+mtcars[toyota,]
