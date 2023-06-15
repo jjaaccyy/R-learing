@@ -97,7 +97,14 @@ Vector[c(-1,-2,-3)]：把第1,2,3的元素拿掉，其他留下
 取奇數或偶數列資料時，要用seq()，才是向量資料(數列)，不能用迴圈因為不是向量資料
 針對row的篩選：subset(dataframe,columname=="...")
 針對row、column篩選：dataframe[row,column](中括弧內可放：1.數字、2.布林、3.名稱)
-
+sort()對向量做由小到大的排序
+order()回傳向量由小到大的元素位置
+要新增的ROWname為數字時，錢字號($)後的新增名稱要加""，EX:iris$"1990"<-c(...)
+資料框結合->使用merge(dataframe1,dataframe2,by="要結合的依據欄位",all=T)->若無對應到的欄位會消失，(若有寫all=T，所有資料會被保留無資料會顯示NA)
+寬表轉長表-EX:gather(airquality,key = Type,value = Value, Ozone,Solar.R,Wind,Temp)
+                     #表名稱    #新欄位名稱(Type)  #新值名稱(Value)，數值大小(Oz....)
+長表轉寬表-EX:spread(air_n,key = Type,value = Value)
+遺漏值：complete.cases(dataframe)->出現布林變數->若有遺漏值出現FALSE，完整出現TRUE
 
 ## Git&GitHub 協作工具和版本控制
 

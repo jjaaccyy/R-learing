@@ -57,3 +57,27 @@ View(mtcars)
 rownames(mtcars)->rowname_car
 grepl("Toyota",rowname_car)->toyota
 mtcars[toyota,]
+
+head(sort(islands,decreasing = T))
+head(order(iris$Sepal.Length))
+head(iris)
+head(iris[order(iris$Sepal.Width,decreasing = T),])
+cbind(iris,"add"=rep("ADD",nrow(iris)))->iris_add
+iris_add
+cbind(USPersonalExpenditure,"1965"=c(100,60,30,10,5))->add_us
+iris$sort<-rep("^__^",nrow(iris))
+iris$"1990"<-c(1:150)
+iris
+
+nameDF<-data.frame(ID=c(1,2,3,4,5),
+                   Name=c("Amy","Bob","Cindy","Daisy","Elsa"))
+scoreDF<-data.frame(ID=c(1,2,4),
+                    Score=c(60,80,90))
+nameDF
+scoreDF
+merge(nameDF,scoreDF,by="ID",all = T)
+
+left_join(nameDF,scoreDF,by="ID")
+right_join(nameDF,scoreDF,by="ID")
+inner_join(nameDF,scoreDF,by="ID")
+semi_join(nameDF,scoreDF,by="ID") #有分數的名字有誰
