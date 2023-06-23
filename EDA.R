@@ -36,3 +36,27 @@ library(dplyr)
 select(iris,starts_with("Sepal"),Species)->select1 #=iris[,c("Species","Sepal.Length","Sepal.Width")]
 select(iris,Petal.Length:Species)->select2
 select(iris,Sepal.Length:"1990",-sort)->select3 #遇到欄位名稱為num時要加""
+iris[iris$Sepal.Length>5,]
+filter(iris,Sepal.Length>5)
+filter(iris,Species %in% "setosa") #%in%表 左邊的向量包括右邊的向量
+iris
+filter(iris,Sepal.Length-Sepal.Width>=0.5
+       &Petal.Length>=1.6)
+mutate1<-mutate(iris,plus=Sepal.Length+Sepal.Width) #增加一個叫做plus的欄位
+summarise(iris,
+          nNumber=n(),
+          nSpecies=n_distinct(Species),
+          nLength=n_distinct(Petal.Length)
+          )->summarise_n
+filter(iris,Sepal.Length>6.5) %>% #用pipe串接程式碼，可將前一個程式碼餵給下一個程式碼的"第一個"參數
+  summarise(nNumber=n(),
+            mean_Width=mean(Sepal.Width),
+            mean_Length=mean(Petal.Length))
+group_by(iris,Species) %>%
+  summarise(nNumber=n(),
+            nLength=mean(Petal.Length),
+            nWidth=mean(Sepal.Width))
+arrange(iris,Petal.Width) #根據Petal.Width由小到大排列，desc(Petal.Width)為由大到小排列
+rename(iris,PW=Petal.Width) #PW取代原名字Petal.Width
+
+

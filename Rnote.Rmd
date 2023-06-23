@@ -105,6 +105,10 @@ order()回傳向量由小到大的元素位置
                      #表名稱    #新欄位名稱(Type)  #新值名稱(Value)，數值大小(Oz....)
 長表轉寬表-EX:spread(air_n,key = Type,value = Value)
 遺漏值：complete.cases(dataframe)->出現布林變數->若有遺漏值出現FALSE，完整出現TRUE
+**\##Ch7**
+資料分析EDA
+dplyer package
+詳見曾老師電子書筆記
 
 ## Git&GitHub 協作工具和版本控制
 
