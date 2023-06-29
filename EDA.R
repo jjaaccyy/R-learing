@@ -58,5 +58,20 @@ group_by(iris,Species) %>%
             nWidth=mean(Sepal.Width))
 arrange(iris,Petal.Width) #根據Petal.Width由小到大排列，desc(Petal.Width)為由大到小排列
 rename(iris,PW=Petal.Width) #PW取代原名字Petal.Width
+install.packages("data.table")
+library(data.table)
+new_iris<-data.table(iris) #將dataframe轉換成datatable
+class(new_iris) #datatable是dataframe資料型別的延伸
+str(new_iris)
+new_iris[grepl("virginica",Species)] #在datatable裡面使用grepl時，不須寫new_iris$Species，直接寫Species即可
+                                     # ，但當資料為dataframe時，必須加$
+new_iris[grepl("virginica",Species)&Petal.Length>=6] #若DT只需要前方參數，後方"，"可省略，若用DF則不可省略
+new_iris[,mean(Petal.Width)] #算某一欄位的平均數
+new_iris[,.(LengthMean=mean(Petal.Length),WidthMean=mean(Petal.Width))] #可用.()同時計算多筆欄位平均
+new_iris[Sepal.Length>5,
+        .(WMean=mean(Sepal.Width),LMean=mean(Sepal.Length))]->GM_new_iris
+new_iris[Sepal.Length>5,
+         .(.N,ML=mean(Sepal.Length),MW=mean(Sepal.Width)),
+         by=Species] #by表示分組
 
 
